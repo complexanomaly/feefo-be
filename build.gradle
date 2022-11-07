@@ -1,0 +1,34 @@
+/* groovylint-disable-next-line CompileStatic */
+apply plugin: 'java'
+
+apply plugin: 'application'
+description = ''
+
+sourceCompatibility = 1.8
+
+mainClassName = 'com.feefo.titles.JobTitles'
+
+jar {
+    manifest {
+        attributes 'Main-Class': mainClassName
+    }
+    from {
+        configurations.runtimeClasspath.collect {
+            it.isDirectory() ? it : zipTree(it)
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation group: 'info.debatty', name: 'java-string-similarity', version: '2.0.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

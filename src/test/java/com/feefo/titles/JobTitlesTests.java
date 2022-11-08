@@ -29,7 +29,7 @@ class JobTitlesTests {
     }
 
     @Test
-    @DisplayName("Check that a surveyor is matched to a surveyor")
+    @DisplayName("Check that a surveyor is matched to a quantity surveyor")
     void correctlyMatchesSurveyor() {
         String inputTitle = "Surveyor";
         Cleaner cleaner = new Cleaner();
@@ -51,7 +51,7 @@ class JobTitlesTests {
     }
     
     @Test
-    @DisplayName("Check that an accountant is matched to an accountant")
+    @DisplayName("Check that a chief accountant is matched to an accountant")
     void correctlyMatchesAccountant() {
         String inputTitle = "Chief Accountant";
         Cleaner cleaner = new Cleaner();
@@ -62,7 +62,7 @@ class JobTitlesTests {
     }
    
     @Test
-    @DisplayName("Check that an accountant is matched to an accountant")
+    @DisplayName("Check that poor matches result in an error message")
     void correctlyDeterminesNoMatch() {
         String inputTitle = "asdfasdfasdf";
         Cleaner cleaner = new Cleaner();
